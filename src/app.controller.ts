@@ -14,7 +14,6 @@ export class AppController {
     return formatPreHTML(response);
   }
 
-  // eslint-disable-next-line prettier/prettier
   @Get(':scraperName/:scraperOptions(*)')
   async getScraperResult(
     @Param('scraperName') scraperName: string,

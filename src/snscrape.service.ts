@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { exec } from 'child_process';
 import { execAsPromise, processMultilineJSON } from 'src/utils';
 
 interface GlobalOptions {
