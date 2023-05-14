@@ -1,5 +1,7 @@
 import { exec } from 'child_process';
 
+export const indexRouteHTML = `<div style="width:100%;height:100%;display:flex;flex-flow:column;justify-content:center;align-items:center;gap:16px"><a style="font-size:24px;" href="https://github.com/caffellatte/snsapi" target="_blank">GITHUB</a><h1 style="font-size:36px;">snsapi</h1><a style="font-size:24px;" href="/help">HELP</a></div>`;
+
 export const formatPreHTML = (str: string) =>
   `<pre style="word-wrap: break-word; white-space: pre-wrap;">${str}</pre>`;
 
@@ -24,4 +26,5 @@ export const processMultilineJSON = (text: string) =>
         return text;
       }
     })
-    .join('\n');
+    .slice(0, -1)
+    .join(',');

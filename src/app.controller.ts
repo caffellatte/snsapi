@@ -6,6 +6,18 @@ import { formatPreHTML } from 'src/utils';
 export class AppController {
   constructor(private readonly sNScrapeService: SNScrapeService) {}
 
+  @Get()
+  getIndex(): string {
+    const response = this.sNScrapeService.getIndex();
+    return formatPreHTML(response);
+  }
+
+  @Get('/help')
+  async getHelp(): Promise<string> {
+    const response = await this.sNScrapeService.getHelp();
+    return formatPreHTML(response);
+  }
+
   @Get(':scraperName/help')
   async getScraperHelp(
     @Param('scraperName') scraperName: string,
@@ -37,6 +49,6 @@ export class AppController {
       globalOptions: { jsonl, withEntity, maxResults },
       scraperOptions,
     });
-    return formatPreHTML(response);
+    return `[${response}]`;
   }
 }
