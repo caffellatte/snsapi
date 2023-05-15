@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { execAsPromise, processMultilineJSON, indexRouteHTML } from 'src/utils';
+import { execAsPromise, processMultilineJSON } from 'src/utils';
 
 interface GlobalOptions {
   jsonl?: boolean;
@@ -23,10 +23,9 @@ const getGlobalOptionsString = ({
   }`;
 
 @Injectable()
-export class SNScrapeService {
+export class SnscrapeService {
   getIndex(): string {
-    const result = indexRouteHTML;
-    return result;
+    return 'https://github.com/caffellatte/snsapi';
   }
 
   async getHelp(): Promise<string> {
